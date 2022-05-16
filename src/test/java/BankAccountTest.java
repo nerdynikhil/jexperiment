@@ -20,4 +20,27 @@ public class BankAccountTest {
         bankAccount.deposit(500);
         assertEquals(900, bankAccount.getBalance(),1);
     }
+    @Test
+    @DisplayName("Withdraw will become negative.")
+    public void testWithdrawNotStuckAtZero(){
+        BankAccount bankAccount = new BankAccount(500,-1000);
+        bankAccount.withdraw(800);
+        assertNotEquals(0, bankAccount.getBalance());
+    }
+
+    @Test
+    @DisplayName("Test activation after account creation.")
+    public void testActive(){
+        BankAccount bankAccount = new BankAccount(500, 0);
+        assertTrue(bankAccount.isActive());
+    }
+
+    @Test
+    @DisplayName("Test set holder name")
+    public void testHolderNameSet(){
+        BankAccount bankAccount = new BankAccount(500,0);
+        bankAccount.setHolderName("Nikhil");
+        assertNotNull(bankAccount.getHolderName());
+    }
+
 }
