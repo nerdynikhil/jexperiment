@@ -9,4 +9,11 @@ public class BankAccountTest {
         bankAccount.withdraw(300);
         assertEquals(200, bankAccount.getBalance(), 1);
     }
+
+    @Test
+    public void testDeposit(){
+        BankAccount bankAccount = new BankAccount(400, 0);
+        bankAccount.deposit(500);
+        assertEquals(900, bankAccount.getBalance(),1);
+    }
 }
